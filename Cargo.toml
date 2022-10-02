@@ -1,0 +1,15 @@
+[package]
+name = "nucleob"
+version = "0.0.0"
+authors = ["Piotr Bajdek <piotr.bajdek@proton.me>"]
+edition = "2021"
+description = "command line bioinformatics tools: nucleobases and protein statistics [UNDER CONSTRUCTION]"
+readme = "README.md"
+repository = "https://github.com/piotrbajdek/nucleob"
+license = "Apache-2.0"
+keywords = ["bioinformatics", "genetics", "protein", "DNA", "RNA"]
+categories = ["command-line-utilities", "filesystem", "science"]
+
+[profile.release]
+codegen-units = 1
+strip = true
