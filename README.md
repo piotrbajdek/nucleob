@@ -2,13 +2,13 @@
 
 [nucleob](https://github.com/piotrbajdek/nucleob) performs a statistical analysis of .fasta files with either nucleotide or amino acid sequences. It is designed to give (1) highly reliable and (2) clearly formatted results, being also (3) supremely minimalist and (4) cross-platform with no system dependencies.
 
-[keywords: amino acids, analysis, bioinformatics, biology, DNA, genes, genetics, fasta, nucleobases, nucleic acids, nucleotides, proteins, RNA, scientific computing, stats, statistics]
+[keywords: amino acids, bioinformatics, biology, DNA, fasta, genes, genetics, nucleic acids, nucleobases, nucleotides, proteins, RNA, scientific computing, statistics, stats]
 
 **As of v1.0.0-alpha.1, nucleob remains in an unstable fast-development phase. This program version is not intended for scientific research but for presentation of the technology and testing!**
 
 # EXAMPLES
 
-[Static links to changeable images of the _most recent_ version of nucleob! This may include pre-releases!]
+[Static link to a changeable image of the _most recent_ version of nucleob! This may include pre-releases!]
 
 ![example-image-1](https://github.com/piotrbajdek/nucleob/blob/main/docs/images/example-image-1.png?raw=true)
 
