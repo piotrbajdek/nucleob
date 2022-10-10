@@ -1,13 +1,13 @@
 [package]
 name = "nucleob"
-version = "0.0.0"
+version = "1.0.0-alpha.1"
 authors = ["Piotr Bajdek <piotr.bajdek@proton.me>"]
 edition = "2021"
-description = "command line bioinformatics tools: nucleobases and protein statistics [UNDER CONSTRUCTION]"
+description = "command line bioinformatics tools: nucleobases and amino acids statistics"
 readme = "README.md"
 repository = "https://github.com/piotrbajdek/nucleob"
-license = "Apache-2.0"
-keywords = ["bioinformatics", "genetics", "protein", "DNA", "RNA"]
+license = "MIT"
+keywords = ["bioinformatics", "DNA", "genetics", "nucleotide", "protein"]
 categories = ["command-line-utilities", "filesystem", "science"]
 
 [profile.release]
