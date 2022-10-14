@@ -1,10 +1,11 @@
-// NUCLEOB VERSION 1.0.0-ALPHA.1 / MIT LICENSE © 2022 PIOTR BAJDEK
+// NUCLEOB VERSION 1.0.0 / MIT LICENSE © 2022 PIOTR BAJDEK
 
 // MODULE AMINO_ACIDS
 
 // CLIPPY LINTS
 
 #![warn(clippy::nursery, clippy::pedantic)]
+#![allow(clippy::cast_precision_loss, clippy::cognitive_complexity, clippy::missing_panics_doc, clippy::similar_names, clippy::too_many_lines)]
 
 // FUNCTION
 
@@ -17,7 +18,7 @@ pub fn a_count(data: &str) {
     // TOO MANY SEQUENCES
 
     let mut seq_no = 0;
-    for line in data.split("\n") {
+    for line in data.split('\n') {
         if line.starts_with('>') {
             seq_no += 1;
             if seq_no == 2 {
@@ -28,7 +29,7 @@ pub fn a_count(data: &str) {
 
     // AMINO ACIDS
 
-    for line in data.split("\n") {
+    for line in data.split('\n') {
         if line.starts_with('>') {
             let ala_rst: f32 = line.matches('A').count() as f32; // Alanine
             let ala_tot: f32 = data.matches('A').count() as f32;
@@ -118,7 +119,7 @@ pub fn a_count(data: &str) {
             let pyl_tot: f32 = data.matches('O').count() as f32;
             let pyl_seq: f32 = pyl_tot - pyl_rst;
 
-            // AMBIGOUS
+            // AMBIGUOUS
 
             let xaa_rst: f32 = line.matches('X').count() as f32; // Any
             let xaa_tot: f32 = data.matches('X').count() as f32;

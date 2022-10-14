@@ -1,10 +1,11 @@
-// NUCLEOB VERSION 1.0.0-ALPHA.1 / MIT LICENSE © 2022 PIOTR BAJDEK
+// NUCLEOB VERSION 1.0.0 / MIT LICENSE © 2022 PIOTR BAJDEK
 
 // MODULE STAT
 
 // CLIPPY LINTS
 
 #![warn(clippy::nursery, clippy::pedantic)]
+#![allow(clippy::missing_panics_doc)]
 
 // IMPORTS
 
@@ -50,7 +51,7 @@ pub fn slct() {
             let isfile: bool = Path::new(input2).is_file();
             if isdir {
                 panic!("{}", red.to_owned() + input2 + " is a directory! See: --help" + reset);
-            // reading files from a directory may be supported in future
+            // loading all files from a directory at once may be supported in future
             } else if isfile {
                 let data = fs::read_to_string(input2).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
                 amino_acids::a_count(&data);
@@ -62,7 +63,7 @@ pub fn slct() {
             let isfile: bool = Path::new(input1).is_file();
             if isdir {
                 panic!("{}", red.to_owned() + input1 + " is a directory! See: --help" + reset);
-            // reading files from a directory may be supported in future
+            // loading all files from a directory at once may be supported in future
             } else if isfile {
                 let data = fs::read_to_string(input1).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
                 amino_acids::a_count(&data);
@@ -81,7 +82,7 @@ pub fn slct() {
             let isfile: bool = Path::new(input2).is_file();
             if isdir {
                 panic!("{}", red.to_owned() + input2 + " is a directory! See: --help" + reset);
-            // reading files from a directory may be supported in future
+            // loading all files from a directory at once may be supported in future
             } else if isfile {
                 let data = fs::read_to_string(input2).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
                 nucleobases::n_count(&data);
@@ -93,7 +94,7 @@ pub fn slct() {
             let isfile: bool = Path::new(input1).is_file();
             if isdir {
                 panic!("{}", red.to_owned() + input1 + " is a directory! See: --help" + reset);
-            // reading files from a directory may be supported in future
+            // loading all files from a directory at once may be supported in future
             } else if isfile {
                 let data = fs::read_to_string(input1).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
                 nucleobases::n_count(&data);

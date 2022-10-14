@@ -1,10 +1,11 @@
-// NUCLEOB VERSION 1.0.0-ALPHA.1 / MIT LICENSE © 2022 PIOTR BAJDEK
+// NUCLEOB VERSION 1.0.0 / MIT LICENSE © 2022 PIOTR BAJDEK
 
 // MODULE NUCLEOBASES
 
 // CLIPPY LINTS
 
 #![warn(clippy::nursery, clippy::pedantic)]
+#![allow(clippy::cast_precision_loss, clippy::cognitive_complexity, clippy::missing_panics_doc, clippy::similar_names, clippy::too_many_lines)]
 
 // FUNCTION
 
@@ -17,7 +18,7 @@ pub fn n_count(data: &str) {
     // TOO MANY SEQUENCES
 
     let mut seq_no = 0;
-    for line in data.split("\n") {
+    for line in data.split('\n') {
         if line.starts_with('>') {
             seq_no += 1;
             if seq_no == 2 {
@@ -28,7 +29,7 @@ pub fn n_count(data: &str) {
 
     // NUCLEOBASES
 
-    for line in data.split("\n") {
+    for line in data.split('\n') {
         if line.starts_with('>') {
             let ade_rst: f32 = line.matches('A').count() as f32; // Adenine
             let ade_tot: f32 = data.matches('A').count() as f32;
@@ -50,7 +51,7 @@ pub fn n_count(data: &str) {
             let ura_tot: f32 = data.matches('U').count() as f32;
             let ura_seq: f32 = ura_tot - ura_rst;
 
-            // AMBIGOUS
+            // AMBIGUOUS
 
             let w_rst: f32 = line.matches('W').count() as f32; // weak
             let w_tot: f32 = data.matches('W').count() as f32;
@@ -100,14 +101,14 @@ pub fn n_count(data: &str) {
             let z_tot: f32 = data.matches('Z').count() as f32;
             let z_seq: f32 = z_tot - z_rst;
 
-            let gap_rst: f32 = line.matches('-').count() as f32; // zero
+            let gap_rst: f32 = line.matches('-').count() as f32; // gap
             let gap_tot: f32 = data.matches('-').count() as f32;
             let gap_seq: f32 = gap_tot - gap_rst;
 
             // CALCULATIONS
 
-            let sum_nuc: f32 = ade_seq + cyt_seq + gua_seq + thy_seq;
-            let sum_amb: f32 = w_seq + s_seq + m_seq + k_seq + r_seq + y_seq + b_seq + d_seq + d_seq + h_seq + v_seq + n_seq;
+            let sum_nuc: f32 = ade_seq + cyt_seq + gua_seq + thy_seq + ura_seq;
+            let sum_amb: f32 = w_seq + s_seq + m_seq + k_seq + r_seq + y_seq + b_seq + d_seq + h_seq + v_seq + n_seq;
             let sum_seq: f32 = sum_nuc + sum_amb;
 
             let at_sum: f32 = ade_seq + thy_seq;

@@ -1,4 +1,4 @@
-// NUCLEOB VERSION 1.0.0-ALPHA.1 / MIT LICENSE © 2022 PIOTR BAJDEK
+// NUCLEOB VERSION 1.0.0 / MIT LICENSE © 2022 PIOTR BAJDEK
 
 // MODULE MENU
 
@@ -25,14 +25,14 @@ pub fn documentation() {
         // CHANGES
 
         if argument == "-c" || argument == "--changes" {
-            println!("--.--.---- v1.0.0 – Implemented{}", cyan.to_owned() + " -a" + reset + ", " + cyan + "-n" + reset);
+            println!("14.10.2022 v1.0.0 – Implemented{}", cyan.to_owned() + " -a" + reset + ", " + cyan + "-n" + reset);
             exit(0);
         }
 
         // CITATION
 
         if argument == "-C" || argument == "--citation" {
-            println!("Bajdek, P., 2022. nucleob (version 1.0.0-alpha.1). [computer software] https://github.com/piotrbajdek/nucleob");
+            println!("Bajdek, P., 2022. nucleob (version 1.0.0). [computer software] https://github.com/piotrbajdek/nucleob");
             exit(0);
         }
 
@@ -60,8 +60,8 @@ pub fn documentation() {
 
         if argument == "-i" || argument == "--info" {
             println!("Program:  {}", yellow.to_owned() + "nucleob" + reset);
-            println!("Version:  1.0.0-alpha.1");
-            println!("Date:     October 10, 2022");
+            println!("Version:  1.0.0");
+            println!("Date:     October 14, 2022");
             println!("Author:   Piotr Bajdek (Poland)");
             println!("Contact:  {}", blue_underlined.to_owned() + "piotr.bajdek@proton.me" + reset);
             println!("ORCID:    {}", blue_underlined.to_owned() + "https://orcid.org/0000-0003-2678-3122" + reset);
@@ -88,8 +88,8 @@ pub fn documentation() {
         // VERSION
 
         if argument == "-v" || argument == "--version" {
-            println!("Version: {}", yellow.to_owned() + "1.0.0-alpha.1" + reset);
-            println!("October 10, 2022");
+            println!("Version: {}", yellow.to_owned() + "1.0.0" + reset);
+            println!("October 14, 2022");
             exit(0);
         }
     }
