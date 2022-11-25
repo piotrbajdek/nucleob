@@ -1,11 +1,11 @@
-// NUCLEOB VERSION 1.0.0 / MIT LICENSE © 2022 PIOTR BAJDEK
+// NUCLEOB VERSION 1.1.0 / MIT LICENSE © 2022 PIOTR BAJDEK
 
 // MODULE STAT
 
 // CLIPPY LINTS
 
 #![warn(clippy::nursery, clippy::pedantic)]
-#![allow(clippy::missing_panics_doc)]
+#![allow(clippy::missing_panics_doc, clippy::too_many_lines)]
 
 // IMPORTS
 
@@ -18,10 +18,7 @@ pub mod nucleobases;
 
 // OPTIONS FOR CALCULATIONS
 
-pub fn slct() {
-    let reset = "\x1b[0m";
-    let red = "\x1b[31m";
-
+pub fn slct(reset: &str, yellow: &str, red: &str, cyan: &str) {
     let args: Vec<String> = env::args().collect();
 
     let input1 = args.get(1).expect(&(red.to_owned() + "Invalid or missing arguments! See: --help" + reset));
@@ -50,25 +47,45 @@ pub fn slct() {
             let isdir: bool = Path::new(input2).is_dir();
             let isfile: bool = Path::new(input2).is_file();
             if isdir {
-                panic!("{}", red.to_owned() + input2 + " is a directory! See: --help" + reset);
-            // loading all files from a directory at once may be supported in future
+                for file in fs::read_dir(input2).unwrap() {
+                    let data0 = file.unwrap().path();
+
+                    let data_n = data0.clone();
+                    let fl_name0 = data_n.file_name().unwrap().to_str();
+                    let fl_name: &str = fl_name0.unwrap().trim();
+
+                    let data = fs::read_to_string(data0).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
+                    amino_acids::a_count(&data, reset, yellow, red, cyan, fl_name);
+                    println!();
+                }
             } else if isfile {
+                let fl_name: &str = input2.trim();
                 let data = fs::read_to_string(input2).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                amino_acids::a_count(&data);
+                amino_acids::a_count(&data, reset, yellow, red, cyan, fl_name);
             } else {
-                panic!("{}", red.to_owned() + "Something went wrong reading the file!" + reset);
+                panic!("{}", red.to_owned() + "Something went wrong reading the file or directory!" + reset);
             }
         } else if input2 == "-a" {
             let isdir: bool = Path::new(input1).is_dir();
             let isfile: bool = Path::new(input1).is_file();
             if isdir {
-                panic!("{}", red.to_owned() + input1 + " is a directory! See: --help" + reset);
-            // loading all files from a directory at once may be supported in future
+                for file in fs::read_dir(input1).unwrap() {
+                    let data0 = file.unwrap().path();
+
+                    let data_n = data0.clone();
+                    let fl_name0 = data_n.file_name().unwrap().to_str();
+                    let fl_name: &str = fl_name0.unwrap().trim();
+
+                    let data = fs::read_to_string(data0).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
+                    amino_acids::a_count(&data, reset, yellow, red, cyan, fl_name);
+                    println!();
+                }
             } else if isfile {
+                let fl_name: &str = input1.trim();
                 let data = fs::read_to_string(input1).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                amino_acids::a_count(&data);
+                amino_acids::a_count(&data, reset, yellow, red, cyan, fl_name);
             } else {
-                panic!("{}", red.to_owned() + "Something went wrong reading the file!" + reset);
+                panic!("{}", red.to_owned() + "Something went wrong reading the file or directory!" + reset);
             }
         }
         return;
@@ -81,25 +98,45 @@ pub fn slct() {
             let isdir: bool = Path::new(input2).is_dir();
             let isfile: bool = Path::new(input2).is_file();
             if isdir {
-                panic!("{}", red.to_owned() + input2 + " is a directory! See: --help" + reset);
-            // loading all files from a directory at once may be supported in future
+                for file in fs::read_dir(input2).unwrap() {
+                    let data0 = file.unwrap().path();
+
+                    let data_n = data0.clone();
+                    let fl_name0 = data_n.file_name().unwrap().to_str();
+                    let fl_name: &str = fl_name0.unwrap().trim();
+
+                    let data = fs::read_to_string(data0).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
+                    nucleobases::n_count(&data, reset, yellow, red, cyan, fl_name);
+                    println!();
+                }
             } else if isfile {
+                let fl_name: &str = input2.trim();
                 let data = fs::read_to_string(input2).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                nucleobases::n_count(&data);
+                nucleobases::n_count(&data, reset, yellow, red, cyan, fl_name);
             } else {
-                panic!("{}", red.to_owned() + "Something went wrong reading the file!" + reset);
+                panic!("{}", red.to_owned() + "Something went wrong reading the file or directory!" + reset);
             }
         } else if input2 == "-n" {
             let isdir: bool = Path::new(input1).is_dir();
             let isfile: bool = Path::new(input1).is_file();
             if isdir {
-                panic!("{}", red.to_owned() + input1 + " is a directory! See: --help" + reset);
-            // loading all files from a directory at once may be supported in future
+                for file in fs::read_dir(input1).unwrap() {
+                    let data0 = file.unwrap().path();
+
+                    let data_n = data0.clone();
+                    let fl_name0 = data_n.file_name().unwrap().to_str();
+                    let fl_name: &str = fl_name0.unwrap().trim();
+
+                    let data = fs::read_to_string(data0).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
+                    nucleobases::n_count(&data, reset, yellow, red, cyan, fl_name);
+                    println!();
+                }
             } else if isfile {
+                let fl_name: &str = input1.trim();
                 let data = fs::read_to_string(input1).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                nucleobases::n_count(&data);
+                nucleobases::n_count(&data, reset, yellow, red, cyan, fl_name);
             } else {
-                panic!("{}", red.to_owned() + "Something went wrong reading the file!" + reset);
+                panic!("{}", red.to_owned() + "Something went wrong reading the file or directory!" + reset);
             }
         }
         return;

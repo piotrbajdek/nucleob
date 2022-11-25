@@ -1,4 +1,4 @@
-// NUCLEOB VERSION 1.0.0 / MIT LICENSE © 2022 PIOTR BAJDEK
+// NUCLEOB VERSION 1.1.0 / MIT LICENSE © 2022 PIOTR BAJDEK
 
 // MODULE AMINO_ACIDS
 
@@ -9,12 +9,7 @@
 
 // FUNCTION
 
-pub fn a_count(data: &str) {
-    let reset = "\x1b[0m";
-    let yellow = "\x1b[93m";
-    let red = "\x1b[31m";
-    let cyan = "\x1b[36m";
-
+pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_name: &str) {
     // TOO MANY SEQUENCES
 
     let mut seq_no = 0;
@@ -22,7 +17,8 @@ pub fn a_count(data: &str) {
         if line.starts_with('>') {
             seq_no += 1;
             if seq_no == 2 {
-                panic!("{}", red.to_owned() + "Too many sequences! Only one sequence per file is allowed." + reset);
+                println!("{}", red.to_owned() + "ERROR" + reset + ": Too many sequences in the file " + red + fl_name + reset + "! Only one sequence per file is allowed." + reset);
+                return;
             }
         }
     }

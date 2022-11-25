@@ -1,4 +1,4 @@
-// NUCLEOB VERSION 1.0.0 / MIT LICENSE © 2022 PIOTR BAJDEK
+// NUCLEOB VERSION 1.1.0 / MIT LICENSE © 2022 PIOTR BAJDEK
 
 // MAIN FILE
 
@@ -14,6 +14,12 @@ pub mod stat;
 // MAIN
 
 fn main() {
-    menu::documentation();
-    stat::slct();
+    let reset = "\x1b[0m";
+    let yellow = "\x1b[93m";
+    let red = "\x1b[31m";
+    let blue_underlined = "\x1b[34;4m";
+    let cyan = "\x1b[36m";
+
+    menu::documentation(reset, yellow, blue_underlined, cyan);
+    stat::slct(reset, yellow, red, cyan);
 }
