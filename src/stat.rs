@@ -1,4 +1,4 @@
-// NUCLEOB VERSION 1.1.0 / MIT LICENSE © 2022 PIOTR BAJDEK
+// NUCLEOB VERSION 1.1.1 / MIT LICENSE © 2022–2023 PIOTR BAJDEK
 
 // MODULE STAT
 
@@ -18,7 +18,7 @@ pub mod nucleobases;
 
 // OPTIONS FOR CALCULATIONS
 
-pub fn slct(reset: &str, yellow: &str, red: &str, cyan: &str) {
+pub fn slct(reset: &str, grey: &str, red: &str, violet: &str, yellow: &str) {
     let args: Vec<String> = env::args().collect();
 
     let input1 = args.get(1).expect(&(red.to_owned() + "Invalid or missing arguments! See: --help" + reset));
@@ -55,13 +55,13 @@ pub fn slct(reset: &str, yellow: &str, red: &str, cyan: &str) {
                     let fl_name: &str = fl_name0.unwrap().trim();
 
                     let data = fs::read_to_string(data0).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                    amino_acids::a_count(&data, reset, yellow, red, cyan, fl_name);
+                    amino_acids::a_count(&data, reset, grey, red, violet, yellow, fl_name);
                     println!();
                 }
             } else if isfile {
                 let fl_name: &str = input2.trim();
                 let data = fs::read_to_string(input2).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                amino_acids::a_count(&data, reset, yellow, red, cyan, fl_name);
+                amino_acids::a_count(&data, reset, grey, red, violet, yellow, fl_name);
             } else {
                 panic!("{}", red.to_owned() + "Something went wrong reading the file or directory!" + reset);
             }
@@ -77,13 +77,13 @@ pub fn slct(reset: &str, yellow: &str, red: &str, cyan: &str) {
                     let fl_name: &str = fl_name0.unwrap().trim();
 
                     let data = fs::read_to_string(data0).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                    amino_acids::a_count(&data, reset, yellow, red, cyan, fl_name);
+                    amino_acids::a_count(&data, reset, grey, red, violet, yellow, fl_name);
                     println!();
                 }
             } else if isfile {
                 let fl_name: &str = input1.trim();
                 let data = fs::read_to_string(input1).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                amino_acids::a_count(&data, reset, yellow, red, cyan, fl_name);
+                amino_acids::a_count(&data, reset, grey, red, violet, yellow, fl_name);
             } else {
                 panic!("{}", red.to_owned() + "Something went wrong reading the file or directory!" + reset);
             }
@@ -106,13 +106,13 @@ pub fn slct(reset: &str, yellow: &str, red: &str, cyan: &str) {
                     let fl_name: &str = fl_name0.unwrap().trim();
 
                     let data = fs::read_to_string(data0).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                    nucleobases::n_count(&data, reset, yellow, red, cyan, fl_name);
+                    nucleobases::n_count(&data, reset, grey, red, violet, yellow, fl_name);
                     println!();
                 }
             } else if isfile {
                 let fl_name: &str = input2.trim();
                 let data = fs::read_to_string(input2).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                nucleobases::n_count(&data, reset, yellow, red, cyan, fl_name);
+                nucleobases::n_count(&data, reset, grey, red, violet, yellow, fl_name);
             } else {
                 panic!("{}", red.to_owned() + "Something went wrong reading the file or directory!" + reset);
             }
@@ -128,13 +128,13 @@ pub fn slct(reset: &str, yellow: &str, red: &str, cyan: &str) {
                     let fl_name: &str = fl_name0.unwrap().trim();
 
                     let data = fs::read_to_string(data0).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                    nucleobases::n_count(&data, reset, yellow, red, cyan, fl_name);
+                    nucleobases::n_count(&data, reset, grey, red, violet, yellow, fl_name);
                     println!();
                 }
             } else if isfile {
                 let fl_name: &str = input1.trim();
                 let data = fs::read_to_string(input1).expect(&(red.to_owned() + "Something went wrong reading the file!" + reset));
-                nucleobases::n_count(&data, reset, yellow, red, cyan, fl_name);
+                nucleobases::n_count(&data, reset, grey, red, violet, yellow, fl_name);
             } else {
                 panic!("{}", red.to_owned() + "Something went wrong reading the file or directory!" + reset);
             }

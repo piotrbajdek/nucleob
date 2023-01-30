@@ -1,6 +1,6 @@
-# OVERVIEW OF NUCLEOB
+# INTRODUCING NUCLEOB
 
-[nucleob](https://github.com/piotrbajdek/nucleob) performs a simple statistical analysis of .fasta files with either nucleotide or amino acid sequences. It is designed to give (1) highly reliable and (2) clearly formatted results, being also (3) supremely minimalist and (4) cross-platform.
+[nucleob](https://github.com/piotrbajdek/nucleob) is a tool that performs statistical analysis on .fasta files containing nucleotide or amino acid sequences. It is engineered to produce highly reliable, clearly formatted results while maintaining a minimalistic design and cross-platform compatibility.
 
 [keywords: amino acids, bioinformatics, biology, DNA, fasta, genes, genetics, molecular, nucleic acids, nucleobases, nucleotides, proteins, RNA, scientific computing, statistics, stats]
 
@@ -12,70 +12,66 @@
 
 # CITATION AND REUSE
 
-You can modify and fork nucleob under terms of the [MIT License](https://github.com/piotrbajdek/nucleob/blob/main/LICENSE.md). Citing nucleob in a research article, always refer to a specific program version, e.g.:
+nucleob can be modified and forked under the terms of the [MIT License](https://github.com/piotrbajdek/nucleob/blob/main/LICENSE.md). When citing nucleob in research articles, it is important to refer to a specific program version, such as:
 
-Bajdek, P., 2022. nucleob (version 1.1.0). [computer software] https://github.com/piotrbajdek/nucleob
+Bajdek, P., 2023. nucleob (version 1.1.1). [computer software] https://github.com/piotrbajdek/nucleob
 
 # INSTALLATION ON LINUX
 
-[nucleob](https://github.com/piotrbajdek/nucleob) should run smoothly on **Windows** and **macOS**, and can be installed by the use of [cargo](https://www.rust-lang.org/tools/install). Yet, it is being developed and primarily tested on **Fedora Linux**.
+[nucleob](https://github.com/piotrbajdek/nucleob) is designed to be compatible with **Windows** and **macOS**, and can be easily installed using [cargo](https://www.rust-lang.org/tools/install). However, the primary development and testing environment for nucleob is **Fedora Linux**.
 
-nucleob v1.1.0:
+The current version of nucleob (v1.1.1) has been verified to work properly on Fedora Linux 37 and Ubuntu 22.10.
 
-– Was successfully tested on Arch Linux, Fedora Linux 37, openSUSE Tumbleweed, Ubuntu 22.04 and Ubuntu 22.10.
+## METHOD 1 – USING CARGO
 
-– Failed to run on Mageia 8 due to an old glibc version (required ≥2.34).
+**[Recommended for programmers]**
 
-## METHOD 1 – BY THE USE OF CARGO
-
-**[recommended for programmers]**
-
-**1.** Install from crates.io by the use of cargo:
+**1.** To install nucleob from [crates.io](https://crates.io/crates/nucleob), use the following cargo command:
 
 _cargo install nucleob_
 
-By default, the file will be downloaded to `.cargo/bin/`, a hidden folder in your home directory.
+The executable will be saved in the hidden `.cargo/bin/` directory within your home directory.
 
-**2a.** For convenience, you will probably want to copy nucleob to `/usr/bin/` as in Method 2 (3a, 3b).
+**2a.** For easy access, you may want to copy the nucleob file to the `/usr/bin/` directory. This can be done by following the instructions in Method 2 (3a, 3b).
 
-**2b.** Alternatively, add `~/.cargo/bin` directory to your PATH variable (can be set up by [rustup](https://www.rust-lang.org/tools/install)).
+**2b.** As an alternative, you can add the `~/.cargo/bin/` directory to your system's PATH variable, which can be configured using [rustup](https://www.rust-lang.org/tools/install).
 
-## METHOD 2 – LINUX UNIVERSAL BINARIES
+## METHOD 2 – UNIVERSAL LINUX BINARIES
 
-**1.** Download the distro-independent [binary](https://github.com/piotrbajdek/nucleob/releases/download/v1.1.0/nucleob) of nucleob from GitHub.
+**1.** To install nucleob, first download the distro-independent [binary](https://github.com/piotrbajdek/nucleob/releases/download/v1.1.1/nucleob) from GitHub.
 
-**2.** Make the file executable:
+**2.** Then, make the file executable by running the command:
 
 _sudo chmod +x ./nucleob_
 
-**3a.** On most Linux distros, install nucleob via copying the binary to `/usr/bin/`:
+**3a.** On most Linux distributions, install nucleob by copying the binary to `/usr/bin/`:
 
 _sudo cp nucleob /usr/bin/_
 
-**3b.** On Fedora Silverblue / Kinoite:
+**3b.** For Fedora Silverblue / Kinoite, use this command:
 
 _sudo cp nucleob /var/usrlocal/bin/_
 
 ## METHOD 3 – DISTRO-SPECIFIC PACKAGES
 
-**[recommended for most users]**
+**[Recommended for most users]**
 
-Distro-specific packages are also available for download for [.rpm](https://github.com/piotrbajdek/nucleob/releases/download/v1.1.0/nucleob-1.1.0-1.x86_64.rpm)- and [.deb](https://github.com/piotrbajdek/nucleob/releases/download/v1.1.0/nucleob_1.1.0_amd64.deb)-based Linux distros. Installation instructions:
+Distro-specific packages for [.rpm](https://github.com/piotrbajdek/nucleob/releases/download/v1.1.1/nucleob-1.1.1-1.x86_64.rpm) and [.deb](https://github.com/piotrbajdek/nucleob/releases/download/v1.1.1/nucleob_1.1.1_amd64.deb)-based Linux distributions are also available for download. To install nucleob on different Linux distributions, follow these instructions:
 
 Fedora Linux / RHEL / openSUSE:
 
-_sudo rpm -i nucleob-1.1.0-1.x86_64.rpm_
+_sudo rpm -i nucleob-1.1.1-1.x86_64.rpm_
 
 Fedora Silverblue / Kinoite:
 
-_rpm-ostree install nucleob-1.1.0-1.x86_64.rpm_
+_rpm-ostree install nucleob-1.1.1-1.x86_64.rpm_
 
 Ubuntu:
 
-_sudo dpkg -i nucleob_1.1.0_amd64.deb_
+_sudo dpkg -i nucleob_1.1.1_amd64.deb_
 
 ## METHOD 4 – MANUAL COMPILATION
 
-Download and unpack the nucleob [source](https://github.com/piotrbajdek/nucleob/archive/refs/tags/v1.1.0.zip) from GitHub. Then, build and install the program:
+First, download and unpack the nucleob [source code](https://github.com/piotrbajdek/nucleob/archive/refs/tags/v1.1.1.zip) from GitHub. Next, to build and install the program, use the command:
 
 _cargo build \--release && sudo cp target/release/nucleob /usr/bin/_

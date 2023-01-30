@@ -1,15 +1,15 @@
-// NUCLEOB VERSION 1.1.0 / MIT LICENSE © 2022 PIOTR BAJDEK
+// NUCLEOB VERSION 1.1.1 / MIT LICENSE © 2022–2023 PIOTR BAJDEK
 
 // MODULE AMINO_ACIDS
 
 // CLIPPY LINTS
 
 #![warn(clippy::nursery, clippy::pedantic)]
-#![allow(clippy::cast_precision_loss, clippy::cognitive_complexity, clippy::missing_panics_doc, clippy::similar_names, clippy::too_many_lines)]
+#![allow(clippy::cast_precision_loss, clippy::cognitive_complexity, clippy::missing_panics_doc, clippy::similar_names, clippy::too_many_lines, clippy::uninlined_format_args)]
 
 // FUNCTION
 
-pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_name: &str) {
+pub fn a_count(data: &str, reset: &str, grey: &str, red: &str, violet: &str, yellow: &str, fl_name: &str) {
     // TOO MANY SEQUENCES
 
     let mut seq_no = 0;
@@ -208,7 +208,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
             println!("{}", line);
             println!("{}", reset.to_owned());
             if sum_seq > 0.0 {
-                print!("Sequence length: {}", yellow.to_owned());
+                print!("{}", grey.to_owned() + "Sequence length" + reset + ": " + yellow);
                 print!("{}", sum_seq);
                 print!("{}", reset);
                 println!(" aa");
@@ -218,11 +218,11 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
             }
 
             if sum_ami > 0.0 {
-                println!("Amino acids:");
+                println!("{}", grey.to_owned() + "Amino acids" + reset + ":");
                 println!();
             }
             if ala_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Alanine" + reset + ":        " + yellow);
+                print!("{}", violet.to_owned() + "Alanine" + reset + ":        " + yellow);
                 print!("{}", ala_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -232,7 +232,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if arg_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Arginine" + reset + ":       " + yellow);
+                print!("{}", violet.to_owned() + "Arginine" + reset + ":       " + yellow);
                 print!("{}", arg_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -242,7 +242,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if asn_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Asparagine" + reset + ":     " + yellow);
+                print!("{}", violet.to_owned() + "Asparagine" + reset + ":     " + yellow);
                 print!("{}", asn_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -252,7 +252,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if asp_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Aspartate" + reset + ":      " + yellow);
+                print!("{}", violet.to_owned() + "Aspartate" + reset + ":      " + yellow);
                 print!("{}", asp_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -262,7 +262,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if cys_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Cysteine" + reset + ":       " + yellow);
+                print!("{}", violet.to_owned() + "Cysteine" + reset + ":       " + yellow);
                 print!("{}", cys_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -272,7 +272,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if gln_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Glutamine" + reset + ":      " + yellow);
+                print!("{}", violet.to_owned() + "Glutamine" + reset + ":      " + yellow);
                 print!("{}", gln_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -282,7 +282,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if glu_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Glutamate" + reset + ":      " + yellow);
+                print!("{}", violet.to_owned() + "Glutamate" + reset + ":      " + yellow);
                 print!("{}", glu_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -292,7 +292,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if gly_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Glycine" + reset + ":        " + yellow);
+                print!("{}", violet.to_owned() + "Glycine" + reset + ":        " + yellow);
                 print!("{}", gly_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -302,7 +302,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if his_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Histidine" + reset + ":      " + yellow);
+                print!("{}", violet.to_owned() + "Histidine" + reset + ":      " + yellow);
                 print!("{}", his_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -312,7 +312,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if ile_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Isoleucine" + reset + ":     " + yellow);
+                print!("{}", violet.to_owned() + "Isoleucine" + reset + ":     " + yellow);
                 print!("{}", ile_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -322,7 +322,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if leu_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Leucine" + reset + ":        " + yellow);
+                print!("{}", violet.to_owned() + "Leucine" + reset + ":        " + yellow);
                 print!("{}", leu_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -332,7 +332,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if lys_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Lysine" + reset + ":         " + yellow);
+                print!("{}", violet.to_owned() + "Lysine" + reset + ":         " + yellow);
                 print!("{}", lys_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -342,7 +342,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if met_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Methionine" + reset + ":     " + yellow);
+                print!("{}", violet.to_owned() + "Methionine" + reset + ":     " + yellow);
                 print!("{}", met_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -352,7 +352,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if phe_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Phenylalanine" + reset + ":  " + yellow);
+                print!("{}", violet.to_owned() + "Phenylalanine" + reset + ":  " + yellow);
                 print!("{}", phe_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -362,7 +362,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if pro_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Proline" + reset + ":        " + yellow);
+                print!("{}", violet.to_owned() + "Proline" + reset + ":        " + yellow);
                 print!("{}", pro_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -372,7 +372,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if ser_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Serine" + reset + ":         " + yellow);
+                print!("{}", violet.to_owned() + "Serine" + reset + ":         " + yellow);
                 print!("{}", ser_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -382,7 +382,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if thr_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Threonine" + reset + ":      " + yellow);
+                print!("{}", violet.to_owned() + "Threonine" + reset + ":      " + yellow);
                 print!("{}", thr_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -392,7 +392,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if trp_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Tryptophan" + reset + ":     " + yellow);
+                print!("{}", violet.to_owned() + "Tryptophan" + reset + ":     " + yellow);
                 print!("{}", trp_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -402,7 +402,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if tyr_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Tyrosine" + reset + ":       " + yellow);
+                print!("{}", violet.to_owned() + "Tyrosine" + reset + ":       " + yellow);
                 print!("{}", tyr_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -412,7 +412,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if val_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Valine" + reset + ":         " + yellow);
+                print!("{}", violet.to_owned() + "Valine" + reset + ":         " + yellow);
                 print!("{}", val_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -422,7 +422,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if sec_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Selenocysteine" + reset + ": " + yellow);
+                print!("{}", violet.to_owned() + "Selenocysteine" + reset + ": " + yellow);
                 print!("{}", sec_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -432,7 +432,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if pyl_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Pyrrolysine" + reset + ":    " + yellow);
+                print!("{}", violet.to_owned() + "Pyrrolysine" + reset + ":    " + yellow);
                 print!("{}", pyl_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -446,11 +446,11 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 if sum_ami > 0.0 {
                     println!();
                 }
-                println!("Ambiguous:");
+                println!("{}", grey.to_owned() + "Ambiguous" + reset + ":");
                 println!();
             }
             if xaa_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "any" + reset + ":            " + yellow);
+                print!("{}", violet.to_owned() + "any" + reset + ":            " + yellow);
                 print!("{}", xaa_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -460,7 +460,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if asx_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Asn or Asp" + reset + ":     " + yellow);
+                print!("{}", violet.to_owned() + "Asn or Asp" + reset + ":     " + yellow);
                 print!("{}", asx_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -470,7 +470,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if glx_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Gln or Glu" + reset + ":     " + yellow);
+                print!("{}", violet.to_owned() + "Gln or Glu" + reset + ":     " + yellow);
                 print!("{}", glx_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -480,7 +480,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if xle_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Leu or Ile" + reset + ":     " + yellow);
+                print!("{}", violet.to_owned() + "Leu or Ile" + reset + ":     " + yellow);
                 print!("{}", xle_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -490,7 +490,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if hydrophobic_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Hydrophobic" + reset + ":    " + yellow);
+                print!("{}", violet.to_owned() + "Hydrophobic" + reset + ":    " + yellow);
                 print!("{}", hydrophobic_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -500,7 +500,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if aromatic_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Aromatic" + reset + ":       " + yellow);
+                print!("{}", violet.to_owned() + "Aromatic" + reset + ":       " + yellow);
                 print!("{}", aromatic_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -510,7 +510,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if aliphatic_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Aliphatic" + reset + ":      " + yellow);
+                print!("{}", violet.to_owned() + "Aliphatic" + reset + ":      " + yellow);
                 print!("{}", aliphatic_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -520,7 +520,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if small_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Small" + reset + ":          " + yellow);
+                print!("{}", violet.to_owned() + "Small" + reset + ":          " + yellow);
                 print!("{}", small_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -530,7 +530,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if hydrophilic_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Hydrophilic" + reset + ":    " + yellow);
+                print!("{}", violet.to_owned() + "Hydrophilic" + reset + ":    " + yellow);
                 print!("{}", hydrophilic_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -540,7 +540,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if positively_charged_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Pos.-charged" + reset + ":   " + yellow);
+                print!("{}", violet.to_owned() + "Pos.-charged" + reset + ":   " + yellow);
                 print!("{}", positively_charged_seq);
                 print!("{}", reset);
                 print!(" aa, ");
@@ -550,7 +550,7 @@ pub fn a_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if negatively_charged_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Neg.-charged" + reset + ":   " + yellow);
+                print!("{}", violet.to_owned() + "Neg.-charged" + reset + ":   " + yellow);
                 print!("{}", negatively_charged_seq);
                 print!("{}", reset);
                 print!(" aa, ");

@@ -1,15 +1,15 @@
-// NUCLEOB VERSION 1.1.0 / MIT LICENSE © 2022 PIOTR BAJDEK
+// NUCLEOB VERSION 1.1.1 / MIT LICENSE © 2022–2023 PIOTR BAJDEK
 
 // MODULE NUCLEOBASES
 
 // CLIPPY LINTS
 
 #![warn(clippy::nursery, clippy::pedantic)]
-#![allow(clippy::cast_precision_loss, clippy::cognitive_complexity, clippy::missing_panics_doc, clippy::similar_names, clippy::too_many_lines)]
+#![allow(clippy::cast_precision_loss, clippy::cognitive_complexity, clippy::missing_panics_doc, clippy::similar_names, clippy::too_many_lines, clippy::uninlined_format_args)]
 
 // FUNCTION
 
-pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_name: &str) {
+pub fn n_count(data: &str, reset: &str, grey: &str, red: &str, violet: &str, yellow: &str, fl_name: &str) {
     // TOO MANY SEQUENCES
 
     let mut seq_no = 0;
@@ -139,7 +139,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
             println!("{}", line);
             println!("{}", reset.to_owned());
             if sum_seq > 0.0 {
-                print!("Sequence length: {}", yellow.to_owned());
+                print!("{}", grey.to_owned() + "Sequence length" + reset + ": " + yellow);
                 print!("{}", sum_seq);
                 print!("{}", reset);
                 println!(" nt");
@@ -149,7 +149,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
             }
 
             if thy_seq > 0.0 {
-                print!("Total {}", cyan.to_owned() + "A-T" + reset + ":  " + yellow);
+                print!("Total {}", violet.to_owned() + "A-T" + reset + ":  " + yellow);
                 print!("{}", at_sum);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -159,7 +159,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if ura_seq > 0.0 {
-                print!("Total {}", cyan.to_owned() + "A-U" + reset + ":  " + yellow);
+                print!("Total {}", violet.to_owned() + "A-U" + reset + ":  " + yellow);
                 print!("{}", au_sum);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -169,7 +169,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if cg_sum > 0.0 {
-                print!("Total {}", cyan.to_owned() + "C-G" + reset + ":  " + yellow);
+                print!("Total {}", violet.to_owned() + "C-G" + reset + ":  " + yellow);
                 print!("{}", cg_sum);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -181,11 +181,11 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
 
             if sum_nuc > 0.0 {
                 println!();
-                println!("Nucleobases:");
+                println!("{}", grey.to_owned() + "Nucleobases" + reset + ":");
                 println!();
             }
             if ade_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Adenine" + reset + ":    " + yellow);
+                print!("{}", violet.to_owned() + "Adenine" + reset + ":    " + yellow);
                 print!("{}", ade_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -195,7 +195,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if cyt_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Cytosine" + reset + ":   " + yellow);
+                print!("{}", violet.to_owned() + "Cytosine" + reset + ":   " + yellow);
                 print!("{}", cyt_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -205,7 +205,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if gua_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Guanine" + reset + ":    " + yellow);
+                print!("{}", violet.to_owned() + "Guanine" + reset + ":    " + yellow);
                 print!("{}", gua_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -215,7 +215,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if thy_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Thymine" + reset + ":    " + yellow);
+                print!("{}", violet.to_owned() + "Thymine" + reset + ":    " + yellow);
                 print!("{}", thy_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -225,7 +225,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if ura_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "Uracil" + reset + ":     " + yellow);
+                print!("{}", violet.to_owned() + "Uracil" + reset + ":     " + yellow);
                 print!("{}", ura_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -239,11 +239,11 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 if sum_nuc > 0.0 {
                     println!();
                 }
-                println!("Ambiguous:");
+                println!("{}", grey.to_owned() + "Ambiguous" + reset + ":");
                 println!();
             }
             if w_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "weak" + reset + ":       " + yellow);
+                print!("{}", violet.to_owned() + "weak" + reset + ":       " + yellow);
                 print!("{}", w_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -253,7 +253,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if s_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "strong" + reset + ":     " + yellow);
+                print!("{}", violet.to_owned() + "strong" + reset + ":     " + yellow);
                 print!("{}", s_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -263,7 +263,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if m_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "amino" + reset + ":      " + yellow);
+                print!("{}", violet.to_owned() + "amino" + reset + ":      " + yellow);
                 print!("{}", m_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -273,7 +273,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if k_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "keto" + reset + ":       " + yellow);
+                print!("{}", violet.to_owned() + "keto" + reset + ":       " + yellow);
                 print!("{}", k_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -283,7 +283,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if r_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "purine" + reset + ":     " + yellow);
+                print!("{}", violet.to_owned() + "purine" + reset + ":     " + yellow);
                 print!("{}", r_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -293,7 +293,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if y_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "pyrimidine" + reset + ": " + yellow);
+                print!("{}", violet.to_owned() + "pyrimidine" + reset + ": " + yellow);
                 print!("{}", y_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -303,7 +303,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if b_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "not A" + reset + ":      " + yellow);
+                print!("{}", violet.to_owned() + "not A" + reset + ":      " + yellow);
                 print!("{}", b_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -313,7 +313,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if d_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "not C" + reset + ":      " + yellow);
+                print!("{}", violet.to_owned() + "not C" + reset + ":      " + yellow);
                 print!("{}", d_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -323,7 +323,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if h_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "not G" + reset + ":      " + yellow);
+                print!("{}", violet.to_owned() + "not G" + reset + ":      " + yellow);
                 print!("{}", h_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -334,9 +334,9 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
             }
             if v_seq > 0.0 {
                 if ura_seq > 0.0 {
-                    print!("{}", cyan.to_owned() + "not U" + reset + ":      " + yellow);
+                    print!("{}", violet.to_owned() + "not U" + reset + ":      " + yellow);
                 } else {
-                    print!("{}", cyan.to_owned() + "not T" + reset + ":      " + yellow);
+                    print!("{}", violet.to_owned() + "not T" + reset + ":      " + yellow);
                 }
                 print!("{}", v_seq);
                 print!("{}", reset);
@@ -347,7 +347,7 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if n_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "any" + reset + ":        " + yellow);
+                print!("{}", violet.to_owned() + "any" + reset + ":        " + yellow);
                 print!("{}", n_seq);
                 print!("{}", reset);
                 print!(" nt, ");
@@ -357,13 +357,13 @@ pub fn n_count(data: &str, reset: &str, yellow: &str, red: &str, cyan: &str, fl_
                 println!(" %");
             }
             if z_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "zero" + reset + ":       " + yellow);
+                print!("{}", violet.to_owned() + "zero" + reset + ":       " + yellow);
                 print!("{}", z_seq);
                 print!("{}", reset);
                 println!(" nt");
             }
             if gap_seq > 0.0 {
-                print!("{}", cyan.to_owned() + "gap" + reset + ":        " + yellow);
+                print!("{}", violet.to_owned() + "gap" + reset + ":        " + yellow);
                 print!("{}", gap_seq);
                 print!("{}", reset);
                 println!(" nt");
