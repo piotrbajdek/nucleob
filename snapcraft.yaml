@@ -1,0 +1,22 @@
+name: nucleob
+version: '1.1.1'
+summary: Bioinformatics - nucleobases and amino acids statistics
+description: |
+  nucleob is a tool that performs statistical analysis on .fasta files containing nucleotide or amino acid sequences. It is engineered to produce highly reliable, clearly formatted results while maintaining a minimalistic design and cross-platform compatibility.
+
+  keywords - amino acids, bioinformatics, biology, DNA, fasta, genes, genetics, molecular, nucleic acids, nucleobases, nucleotides, proteins, RNA, scientific computing, statistics, stats
+
+base: core18
+grade: stable
+confinement: strict
+
+parts:
+  nucleob:
+    plugin: rust
+    source: https://github.com/piotrbajdek/nucleob.git
+
+apps:
+  nucleob:
+    command: bin/nucleob   
+    plugs:
+    - home
